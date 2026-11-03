@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Build and test
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Show toolchain
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: Unit tests (PointwiseCore)
+        run: swift test --package-path Packages/PointwiseCore
+
+      - name: Build app (Debug, warnings as errors)
+        run: |
+          xcodebuild \
+            -project Pointwise.xcodeproj \
+            -scheme Pointwise \
+            -configuration Debug \
+            -derivedDataPath build/DerivedData \
+            SWIFT_TREAT_WARNINGS_AS_ERRORS=YES \
+            build
+
+      - name: Build and package (Release, ad-hoc signed)
+        run: ./scripts/build-release.sh
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v7
+        with:
+          name: Pointwise-${{ github.sha }}
+          path: |
+            build/Pointwise-*.zip
+            build/Pointwise-*.dmg
+            build/Pointwise-*.sha256
+          retention-days: 14

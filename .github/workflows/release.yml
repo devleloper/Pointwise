@@ -1,0 +1,93 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build, sign, notarize and draft release
+    runs-on: macos-26
+    timeout-minutes: 60
+    environment: release
+    env:
+      HAS_SIGNING_SECRETS: ${{ secrets.DEVELOPER_ID_CERTIFICATE_P12 != '' && secrets.DEVELOPER_ID_CERTIFICATE_PASSWORD != '' && secrets.NOTARY_API_KEY_P8 != '' && secrets.NOTARY_API_KEY_ID != '' && secrets.NOTARY_API_ISSUER_ID != '' }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check version matches tag
+        run: |
+          VERSION=$(grep -m1 'MARKETING_VERSION' Pointwise.xcodeproj/project.pbxproj | sed -E 's/.*= ([^;]+);/\1/')
+          if [[ "v$VERSION" != "$GITHUB_REF_NAME" ]]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match MARKETING_VERSION $VERSION"
+            exit 1
+          fi
+
+      - name: Unit tests
+        run: swift test --package-path Packages/PointwiseCore
+
+      - name: Import Developer ID certificate
+        if: env.HAS_SIGNING_SECRETS == 'true'
+        env:
+          CERTIFICATE_P12: ${{ secrets.DEVELOPER_ID_CERTIFICATE_P12 }}
+          CERTIFICATE_PASSWORD: ${{ secrets.DEVELOPER_ID_CERTIFICATE_PASSWORD }}
+          NOTARY_API_KEY_P8: ${{ secrets.NOTARY_API_KEY_P8 }}
+        run: |
+          KEYCHAIN="$RUNNER_TEMP/signing.keychain-db"
+          KEYCHAIN_PASSWORD=$(uuidgen)
+          echo "$CERTIFICATE_P12" | base64 --decode > "$RUNNER_TEMP/certificate.p12"
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security set-keychain-settings -lut 3600 "$KEYCHAIN"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security import "$RUNNER_TEMP/certificate.p12" -k "$KEYCHAIN" -P "$CERTIFICATE_PASSWORD" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN" >/dev/null
+          security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | tr -d '"')
+          rm "$RUNNER_TEMP/certificate.p12"
+
+          IDENTITY=$(security find-identity -v -p codesigning "$KEYCHAIN" | grep -m1 "Developer ID Application" | sed -E 's/.*"(.+)"/\1/')
+          if [[ -z "$IDENTITY" ]]; then
+            echo "::error::No Developer ID Application identity in the imported certificate"
+            exit 1
+          fi
+          echo "DEVELOPER_ID_IDENTITY=$IDENTITY" >> "$GITHUB_ENV"
+
+          echo "$NOTARY_API_KEY_P8" | base64 --decode > "$RUNNER_TEMP/notary-key.p8"
+          echo "NOTARY_KEY_PATH=$RUNNER_TEMP/notary-key.p8" >> "$GITHUB_ENV"
+
+      - name: Warn about unsigned build
+        if: env.HAS_SIGNING_SECRETS != 'true'
+        run: echo "::warning::Signing secrets are not configured; this release is ad-hoc signed. See docs/RELEASING.md."
+
+      - name: Build, sign and notarize
+        env:
+          NOTARY_KEY_ID: ${{ secrets.NOTARY_API_KEY_ID }}
+          NOTARY_ISSUER_ID: ${{ secrets.NOTARY_API_ISSUER_ID }}
+          REQUIRE_NOTARIZATION: ${{ env.HAS_SIGNING_SECRETS == 'true' && '1' || '0' }}
+        run: ./scripts/build-release.sh
+
+      - name: Create draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          if [[ "$HAS_SIGNING_SECRETS" == "true" ]]; then
+            NOTE="Signed with Developer ID and notarized by Apple."
+          else
+            NOTE="This build is ad-hoc signed and not notarized, so macOS blocks it on first launch: open System Settings › Privacy & Security and click Open Anyway (on macOS 14 you can also Control-click Pointwise.app and choose Open)."
+          fi
+          gh release create "$GITHUB_REF_NAME" \
+            "build/Pointwise-$VERSION.dmg" \
+            "build/Pointwise-$VERSION.zip" \
+            "build/Pointwise-$VERSION.sha256" \
+            --draft \
+            --title "Pointwise $VERSION" \
+            --notes "See [CHANGELOG.md](https://github.com/${GITHUB_REPOSITORY}/blob/main/CHANGELOG.md) for details. $NOTE"
+
+      - name: Clean up signing material
+        if: always()
+        run: |
+          security delete-keychain "$RUNNER_TEMP/signing.keychain-db" 2>/dev/null || true
+          rm -f "$RUNNER_TEMP/notary-key.p8"
