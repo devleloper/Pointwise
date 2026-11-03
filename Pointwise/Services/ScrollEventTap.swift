@@ -38,8 +38,8 @@ final class ScrollEventTap: @unchecked Sendable {
     private var scroller: WheelScroller
     private var frameTimer: CFRunLoopTimer?
     private var glideFlags: CGEventFlags = []
-    /// Where the wheel was aimed when the glide started; frames go there, like native momentum,
-    /// even if the pointer moves on.
+    /// Where the wheel was last aimed; frames go there, like native momentum, even if the
+    /// pointer moves on.
     private var glideLocation: CGPoint?
     private let clock = ContinuousClock()
     private let origin = ContinuousClock.now
@@ -225,9 +225,8 @@ final class ScrollEventTap: @unchecked Sendable {
             stopGlide()
         }
         glideFlags = flags
-        if !scroller.isGliding {
-            glideLocation = event.location
-        }
+        // Follow the wheel: new notches over another window must scroll that window.
+        glideLocation = event.location
 
         let time = now
         let lead = configuration.frameInterval

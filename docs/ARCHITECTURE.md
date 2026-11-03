@@ -104,7 +104,7 @@ Only public event fields are used: `ScrollPhase`/`MomentumPhase` non-zero means 
 - **Smoothing on:** each notch starts an ease-out glide `1 - (1 - t)^k` (`GlideAnimator`). Glides overlap and add up, so the total distance is exact regardless of frame timing. The first chunk replaces the original event, so there is no added latency and nothing is duplicated; the rest is posted at the display's refresh rate. Fractions of a point are carried (`FractionAccumulator`).
 - **Reversal** flips the sign per axis. In-place rewrites read all three delta fields before writing, because setting the line delta overwrites the others.
 
-Glide frames carry the location where the wheel was aimed, so — like native momentum — the rest of a glide keeps scrolling the same view even if the pointer moves on.
+Glide frames carry the location where the wheel was last aimed, so — like native momentum — the rest of a glide keeps scrolling the same view even if the pointer moves on, while a new notch over another view takes the glide with it.
 
 Synthesized events are pixel-precise and **phase-less**: that avoids swipe navigation and rubber-banding being triggered by a mouse wheel. They carry a marker in `eventSourceUserData` so the tap passes them through. Shift is applied by moving the delta to the horizontal axis, because AppKit only does that for classic wheel events.
 
