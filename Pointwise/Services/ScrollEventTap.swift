@@ -111,7 +111,7 @@ final class ScrollEventTap: @unchecked Sendable {
     @MainActor
     func stop() {
         guard thread != nil, let controlRunLoop else { return }
-        CFRunLoopPerformBlock(controlRunLoop, CFRunLoopMode.commonModes.rawValue) {
+        performOnTapThread(controlRunLoop) {
             CFRunLoopStop(CFRunLoopGetCurrent())
         }
         CFRunLoopWakeUp(controlRunLoop)
@@ -136,10 +136,17 @@ final class ScrollEventTap: @unchecked Sendable {
     @MainActor
     func cancelGlide() {
         guard let controlRunLoop else { return }
-        CFRunLoopPerformBlock(controlRunLoop, CFRunLoopMode.commonModes.rawValue) { [self] in
+        performOnTapThread(controlRunLoop) { [self] in
             stopGlide()
         }
         CFRunLoopWakeUp(controlRunLoop)
+    }
+
+    /// Runs `block` on the tap thread's run loop. The block must be `@Sendable`: a plain closure
+    /// written in a main-actor method inherits main-actor isolation, and Swift traps when it then
+    /// runs on another thread.
+    private nonisolated func performOnTapThread(_ runLoop: CFRunLoop, _ block: @escaping @Sendable () -> Void) {
+        CFRunLoopPerformBlock(runLoop, CFRunLoopMode.commonModes.rawValue, block)
     }
 
     // MARK: Tap thread
