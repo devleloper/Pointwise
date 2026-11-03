@@ -37,7 +37,7 @@ final class AppModel {
     @ObservationIgnored private let scrollTap: ScrollEventTap
     @ObservationIgnored private var maintenanceTimer: Timer?
     @ObservationIgnored private var observers: [NSObjectProtocol] = []
-    @ObservationIgnored private var clickMonitor: Any?
+    @ObservationIgnored private var clickMonitors: [Any] = []
     @ObservationIgnored private var delayedReapply: Task<Void, Never>?
     @ObservationIgnored private var permissionCheck: Task<Void, Never>?
     @ObservationIgnored private var isAsleep = false
@@ -201,15 +201,23 @@ final class AppModel {
         }
     }
 
-    /// Clicking stops a glide. A passive global monitor, so clicks never pass through the tap.
+    /// Clicking stops a glide. Passive monitors, so clicks never pass through the tap: the global
+    /// one sees clicks in other apps, the local one clicks in Pointwise's own windows.
     private func setClickMonitor(enabled: Bool) {
-        if enabled, clickMonitor == nil {
-            clickMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] _ in
-                MainActor.assumeIsolated { self?.scrollTap.cancelGlide() }
-            }
-        } else if !enabled, let monitor = clickMonitor {
-            NSEvent.removeMonitor(monitor)
-            clickMonitor = nil
+        let clicks: NSEvent.EventTypeMask = [.leftMouseDown, .rightMouseDown, .otherMouseDown]
+        if enabled, clickMonitors.isEmpty {
+            clickMonitors = [
+                NSEvent.addGlobalMonitorForEvents(matching: clicks) { [weak self] _ in
+                    MainActor.assumeIsolated { self?.scrollTap.cancelGlide() }
+                },
+                NSEvent.addLocalMonitorForEvents(matching: clicks) { [weak self] event in
+                    MainActor.assumeIsolated { self?.scrollTap.cancelGlide() }
+                    return event
+                },
+            ].compactMap { $0 }
+        } else if !enabled {
+            clickMonitors.forEach(NSEvent.removeMonitor)
+            clickMonitors = []
         }
     }
 
