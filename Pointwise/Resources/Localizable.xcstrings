@@ -1,0 +1,1294 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "!": {
+      "shouldTranslate": false
+    },
+    "%@ lines": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ строки"
+          }
+        }
+      }
+    },
+    "%@ · Pointer built into another device": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · указатель встроен в другое устройство"
+          }
+        }
+      }
+    },
+    "%lld ms": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld мс"
+          }
+        }
+      }
+    },
+    "A slow notch scrolls %lld points; the fastest spin scrolls %lld points per notch.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Медленный шаг колеса прокручивает %1$lld пт, самое быстрое вращение — %2$lld пт за шаг."
+          }
+        }
+      }
+    },
+    "Acceleration": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ускорение"
+          }
+        }
+      }
+    },
+    "Acceleration is off: the pointer moves one point per mouse count.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ускорение выключено: указатель смещается на одну точку за каждый отсчёт мыши."
+          }
+        }
+      }
+    },
+    "Access is granted, but macOS applies it after Pointwise restarts.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Доступ выдан, но macOS применит его после перезапуска Pointwise."
+          }
+        }
+      }
+    },
+    "Accessibility": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Универсальный доступ"
+          }
+        }
+      }
+    },
+    "Accessibility access required": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нужен доступ «Универсальный доступ»"
+          }
+        }
+      }
+    },
+    "Applies to mice with a notched scroll wheel. Trackpads and Magic Mouse keep their own scrolling, gestures and momentum.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Действует для мышей с колесом со щелчками. Трекпады и Magic Mouse сохраняют свою прокрутку, жесты и инерцию."
+          }
+        }
+      }
+    },
+    "Brief": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Коротко"
+          }
+        }
+      }
+    },
+    "Connect a USB, Bluetooth or wireless mouse. It appears here automatically.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Подключите USB-, Bluetooth- или беспроводную мышь. Она появится здесь автоматически."
+          }
+        }
+      }
+    },
+    "Connected": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Подключены"
+          }
+        }
+      }
+    },
+    "Curve": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кривая"
+          }
+        }
+      }
+    },
+    "Curve for": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кривая для"
+          }
+        }
+      }
+    },
+    "Curve for %@, which uses %@ at %lld counts per inch.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кривая для «%1$@»: %2$@, %3$lld отсчётов на дюйм."
+          }
+        }
+      }
+    },
+    "Custom": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Свои"
+          }
+        }
+      }
+    },
+    "Custom wheel scrolling": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Своя прокрутка колесом"
+          }
+        }
+      }
+    },
+    "Customize pointer tracking": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Настроить скорость указателя"
+          }
+        }
+      }
+    },
+    "Devices": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Устройства"
+          }
+        }
+      }
+    },
+    "Direction": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Направление"
+          }
+        }
+      }
+    },
+    "Distance": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Расстояние"
+          }
+        }
+      }
+    },
+    "Distance per notch": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Шаг колеса"
+          }
+        }
+      }
+    },
+    "Each notch glides to a stop. Responsiveness controls how much of the distance is covered right away; clicking or touching the trackpad stops the glide.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Каждый шаг колеса плавно затухает. Отзывчивость определяет, какая часть расстояния проходится сразу. Щелчок или касание трекпада останавливает движение."
+          }
+        }
+      }
+    },
+    "Each notch takes %lld milliseconds to come to rest.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Каждый шаг затухает за %lld мс."
+          }
+        }
+      }
+    },
+    "Enable Pointwise": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Включить Pointwise"
+          }
+        }
+      }
+    },
+    "Every mouse goes back to its macOS tracking speed, per-device settings are removed, and scrolling returns to the default settings.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Все мыши вернутся к скорости из настроек macOS, настройки отдельных устройств будут удалены, а прокрутка вернётся к значениям по умолчанию."
+          }
+        }
+      }
+    },
+    "Fast": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Быстро"
+          }
+        }
+      }
+    },
+    "Fine-tune your mouse without touching the trackpad.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Тонкая настройка мыши, трекпад не затрагивается."
+          }
+        }
+      }
+    },
+    "Forget %@": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Забыть «%@»"
+          }
+        }
+      }
+    },
+    "Forget this mouse": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Забыть эту мышь"
+          }
+        }
+      }
+    },
+    "General": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Основные"
+          }
+        }
+      }
+    },
+    "Gentle": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Мягко"
+          }
+        }
+      }
+    },
+    "Give a mouse its own pointer speed, or leave it to macOS. Wheel scrolling settings apply to every mouse, because macOS doesn't tell apps which mouse scrolled without Input Monitoring access.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Задайте мыши свою скорость указателя или оставьте её macOS. Настройки прокрутки действуют для всех мышей: без доступа «Мониторинг ввода» macOS не сообщает приложениям, какая мышь прокручивает."
+          }
+        }
+      }
+    },
+    "Glide curve": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кривая затухания"
+          }
+        }
+      }
+    },
+    "Grant Accessibility Access…": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Разрешить доступ…"
+          }
+        }
+      }
+    },
+    "Grant Access…": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выдать доступ…"
+          }
+        }
+      }
+    },
+    "Granted": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выдан"
+          }
+        }
+      }
+    },
+    "High": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сильное"
+          }
+        }
+      }
+    },
+    "Immediate": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сразу"
+          }
+        }
+      }
+    },
+    "Long": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Длинный"
+          }
+        }
+      }
+    },
+    "Long glide": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Долго"
+          }
+        }
+      }
+    },
+    "Milliseconds after a notch": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Миллисекунды после шага колеса"
+          }
+        }
+      }
+    },
+    "Mouse settings in macOS": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Настройки мыши в macOS"
+          }
+        }
+      }
+    },
+    "Mouse speed": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скорость мыши"
+          }
+        }
+      }
+    },
+    "Mouse speed (counts per report)": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скорость мыши (отсчётов за отчёт)"
+          }
+        }
+      }
+    },
+    "Move Pointwise to the Applications folder so it can open at login reliably.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Переместите Pointwise в папку «Программы», чтобы он надёжно открывался при входе."
+          }
+        }
+      }
+    },
+    "No Mouse Connected": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Мышь не подключена"
+          }
+        }
+      }
+    },
+    "No network access, no analytics. Trackpad gestures and the keyboard are never touched.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Без доступа к сети и аналитики. Жесты трекпада и клавиатура не затрагиваются."
+          }
+        }
+      }
+    },
+    "Not Connected": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не подключены"
+          }
+        }
+      }
+    },
+    "Not connected": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не подключена"
+          }
+        }
+      }
+    },
+    "Not needed": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не нужен"
+          }
+        }
+      }
+    },
+    "Off": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выкл."
+          }
+        }
+      }
+    },
+    "Open Login Items…": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Открыть «Объекты входа»…"
+          }
+        }
+      }
+    },
+    "Open Mouse Settings…": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Открыть настройки мыши…"
+          }
+        }
+      }
+    },
+    "Open Settings": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Открыть настройки"
+          }
+        }
+      }
+    },
+    "Open at login": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Открывать при входе"
+          }
+        }
+      }
+    },
+    "Per mouse, through the same system the macOS setting uses. No permission needed.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Для каждой мыши отдельно, тем же механизмом, что и настройка macOS. Разрешения не нужны."
+          }
+        }
+      }
+    },
+    "Permissions": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Разрешения"
+          }
+        }
+      }
+    },
+    "Pointer": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Указатель"
+          }
+        }
+      }
+    },
+    "Pointer acceleration": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ускорение указателя"
+          }
+        }
+      }
+    },
+    "Pointer acceleration curve": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кривая ускорения указателя"
+          }
+        }
+      }
+    },
+    "Pointer acceleration is off in System Settings › Mouse › Advanced, so macOS scales movement linearly: Tracking speed works as a plain multiplier.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ускорение указателя выключено в «Системных настройках › Мышь › Дополнительно», поэтому macOS масштабирует движение линейно: скорость перемещения работает как простой множитель."
+          }
+        }
+      }
+    },
+    "Pointer points per count": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Точек указателя на отсчёт"
+          }
+        }
+      }
+    },
+    "Pointer speed and acceleration": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скорость и ускорение указателя"
+          }
+        }
+      }
+    },
+    "Points per notch": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Точек за шаг"
+          }
+        }
+      }
+    },
+    "Pointwise": {
+      "shouldTranslate": false
+    },
+    "Pointwise (paused)": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pointwise (на паузе)"
+          }
+        }
+      }
+    },
+    "Pointwise Needs Attention…": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pointwise требует внимания…"
+          }
+        }
+      }
+    },
+    "Pointwise Settings": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Настройки Pointwise"
+          }
+        }
+      }
+    },
+    "Pointwise needs it to adjust mouse-wheel scrolling. It only changes scroll events and never reads what you type. Pointer settings work without it.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Он нужен Pointwise, чтобы менять прокрутку колесом. Приложение изменяет только события прокрутки и никогда не читает то, что вы печатаете. Настройки указателя работают и без него."
+          }
+        }
+      }
+    },
+    "Pointwise works offline. It has no network access, analytics or telemetry.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pointwise работает офлайн: без доступа к сети, аналитики и телеметрии."
+          }
+        }
+      }
+    },
+    "Private and offline": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Приватно и офлайн"
+          }
+        }
+      }
+    },
+    "Quit Pointwise": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Завершить Pointwise"
+          }
+        }
+      }
+    },
+    "Relaunch Pointwise": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Перезапустить Pointwise"
+          }
+        }
+      }
+    },
+    "Reset Pointer": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сбросить указатель"
+          }
+        }
+      }
+    },
+    "Reset Scrolling": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сбросить прокрутку"
+          }
+        }
+      }
+    },
+    "Responsiveness": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Отзывчивость"
+          }
+        }
+      }
+    },
+    "Restart required": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нужен перезапуск"
+          }
+        }
+      }
+    },
+    "Restore Defaults": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Восстановить"
+          }
+        }
+      }
+    },
+    "Restore Defaults…": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Восстановить по умолчанию…"
+          }
+        }
+      }
+    },
+    "Restore defaults?": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Восстановить настройки по умолчанию?"
+          }
+        }
+      }
+    },
+    "Restore every mouse and scrolling option to its default.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вернуть все настройки мышей и прокрутки к значениям по умолчанию."
+          }
+        }
+      }
+    },
+    "Reverse horizontal scrolling": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Обратная горизонтальная прокрутка"
+          }
+        }
+      }
+    },
+    "Reverse vertical scrolling": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Обратная вертикальная прокрутка"
+          }
+        }
+      }
+    },
+    "Reverses the mouse wheel relative to macOS Natural scrolling, which is off. The trackpad keeps the macOS direction.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Меняет направление колеса относительно «Естественной прокрутки» macOS (сейчас выключена). Трекпад сохраняет направление macOS."
+          }
+        }
+      }
+    },
+    "Reverses the mouse wheel relative to macOS Natural scrolling, which is on. The trackpad keeps the macOS direction.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Меняет направление колеса относительно «Естественной прокрутки» macOS (сейчас включена). Трекпад сохраняет направление macOS."
+          }
+        }
+      }
+    },
+    "Scroll acceleration curve": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кривая ускорения прокрутки"
+          }
+        }
+      }
+    },
+    "Scrolling": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Прокрутка"
+          }
+        }
+      }
+    },
+    "Settings…": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Настройки…"
+          }
+        }
+      }
+    },
+    "Shared settings": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Общие настройки"
+          }
+        }
+      }
+    },
+    "Short": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Короткий"
+          }
+        }
+      }
+    },
+    "Show in menu bar": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Показывать в строке меню"
+          }
+        }
+      }
+    },
+    "Showing the macOS setting.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Показана настройка macOS."
+          }
+        }
+      }
+    },
+    "Slow": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Медленно"
+          }
+        }
+      }
+    },
+    "Slow movements move %@ points per count; fast movements move %@ points per count.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Медленные движения дают %1$@ точки на отсчёт, быстрые — %2$@."
+          }
+        }
+      }
+    },
+    "Smooth Scrolling": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Плавная прокрутка"
+          }
+        }
+      }
+    },
+    "Smooth scrolling": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Плавная прокрутка"
+          }
+        }
+      }
+    },
+    "Smooth, accelerated wheel scrolling": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Плавная прокрутка колесом с ускорением"
+          }
+        }
+      }
+    },
+    "Smoothness": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Плавность"
+          }
+        }
+      }
+    },
+    "Speed": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скорость"
+          }
+        }
+      }
+    },
+    "Speed multiplier": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Множитель скорости"
+          }
+        }
+      }
+    },
+    "Time": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Время"
+          }
+        }
+      }
+    },
+    "To open Settings while the icon is hidden, open Pointwise again from Finder or Spotlight.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Когда значок скрыт, откройте Pointwise ещё раз из Finder или Spotlight, чтобы попасть в настройки."
+          }
+        }
+      }
+    },
+    "Tracking": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скорость указателя"
+          }
+        }
+      }
+    },
+    "Tracking speed": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скорость перемещения"
+          }
+        }
+      }
+    },
+    "Unknown connection": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Неизвестное подключение"
+          }
+        }
+      }
+    },
+    "Unnamed Mouse": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Мышь без названия"
+          }
+        }
+      }
+    },
+    "Used only to adjust mouse-wheel scroll events.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Используется только для изменения событий прокрутки колесом."
+          }
+        }
+      }
+    },
+    "Version": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Версия"
+          }
+        }
+      }
+    },
+    "Welcome to Pointwise": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Добро пожаловать в Pointwise"
+          }
+        }
+      }
+    },
+    "Wheel speed": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скорость колеса"
+          }
+        }
+      }
+    },
+    "Wheel speed (notches per second)": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скорость колеса (шагов в секунду)"
+          }
+        }
+      }
+    },
+    "When off, every mouse goes back to its macOS settings and scroll events pass through unchanged.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Когда выключено, все мыши возвращаются к настройкам macOS, а события прокрутки проходят без изменений."
+          }
+        }
+      }
+    },
+    "When off, mice use System Settings › Mouse. Mice with their own settings in Devices are not affected.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Когда выключено, мыши используют «Системные настройки › Мышь». На мыши со своими настройками в разделе «Устройства» это не влияет."
+          }
+        }
+      }
+    },
+    "Without acceleration": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Без ускорения"
+          }
+        }
+      }
+    },
+    "Your own speed curve, glide and direction for each axis. Needs Accessibility access.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Своя кривая скорости, плавность и направление по каждой оси. Нужен доступ «Универсальный доступ»."
+          }
+        }
+      }
+    },
+    "a typical mouse": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "типичной мыши"
+          }
+        }
+      }
+    },
+    "its own acceleration curves": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "собственные кривые ускорения"
+          }
+        }
+      }
+    },
+    "macOS needs your approval in Login Items.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS ждёт вашего подтверждения в «Объектах входа»."
+          }
+        }
+      }
+    },
+    "macOS refused to change the tracking speed of %lld device(s).": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "macOS refused to change the tracking speed of %lld device."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "macOS refused to change the tracking speed of %lld devices."
+                }
+              }
+            }
+          }
+        },
+        "ru": {
+          "variations": {
+            "plural": {
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "macOS не позволила изменить скорость %lld устройств."
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "macOS не позволила изменить скорость %lld устройств."
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "macOS не позволила изменить скорость %lld устройства."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "macOS не позволила изменить скорость %lld устройства."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "macOS setting": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Настройка macOS"
+          }
+        }
+      }
+    },
+    "macOS settings": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Настройки macOS"
+          }
+        }
+      }
+    },
+    "macOS uses one tracking value for both speed and acceleration: higher values move faster and accelerate more. With acceleration off, the pointer moves exactly as far as the mouse reports, so its speed follows the mouse's DPI setting. macOS doesn't let apps change speed and acceleration separately.": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS задаёт скорость и ускорение одним значением: чем оно больше, тем быстрее указатель и сильнее ускорение. Без ускорения указатель смещается ровно на столько, сколько сообщает мышь, поэтому скорость зависит от её DPI. macOS не позволяет приложениям менять скорость и ускорение по отдельности."
+          }
+        }
+      }
+    },
+    "the standard macOS curve": {
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "стандартная кривая macOS"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
