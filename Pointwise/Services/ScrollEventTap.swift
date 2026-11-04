@@ -42,6 +42,17 @@ final class ScrollEventTap: @unchecked Sendable {
     /// pointer moves on.
     private var glideLocation: CGPoint?
     private let clock = ContinuousClock()
+    /// Source of every synthesized event. By default macOS suppresses local mouse and keyboard
+    /// input for 0.25 s after each posted event; with glide frames every few milliseconds the
+    /// pointer would barely move while scrolling.
+    private let eventSource: CGEventSource? = {
+        let source = CGEventSource(stateID: .privateState)
+        source?.localEventsSuppressionInterval = 0
+        let permitAll: CGEventFilterMask = [.permitLocalMouseEvents, .permitLocalKeyboardEvents, .permitSystemDefinedEvents]
+        source?.setLocalEventsFilterDuringSuppressionState(permitAll, state: .eventSuppressionStateSuppressionInterval)
+        source?.setLocalEventsFilterDuringSuppressionState(permitAll, state: .eventSuppressionStateRemoteMouseDrag)
+        return source
+    }()
     private let origin = ContinuousClock.now
 
     init(configuration: Configuration) {
@@ -313,7 +324,7 @@ final class ScrollEventTap: @unchecked Sendable {
             swap(&vertical, &horizontal)
         }
         guard let event = CGEvent(
-            scrollWheelEvent2Source: nil,
+            scrollWheelEvent2Source: eventSource,
             units: .pixel,
             wheelCount: 2,
             wheel1: Int32(clamping: vertical),
