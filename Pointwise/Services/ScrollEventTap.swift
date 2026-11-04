@@ -38,9 +38,6 @@ final class ScrollEventTap: @unchecked Sendable {
     private var scroller: WheelScroller
     private var frameTimer: CFRunLoopTimer?
     private var glideFlags: CGEventFlags = []
-    /// Where the wheel was last aimed; frames go there, like native momentum, even if the
-    /// pointer moves on.
-    private var glideLocation: CGPoint?
     private let clock = ContinuousClock()
     /// Source of every synthesized event. By default macOS suppresses local mouse and keyboard
     /// input for 0.25 s after each posted event; with glide frames every few milliseconds the
@@ -236,8 +233,6 @@ final class ScrollEventTap: @unchecked Sendable {
             stopGlide()
         }
         glideFlags = flags
-        // Follow the wheel: new notches over another window must scroll that window.
-        glideLocation = event.location
 
         let time = now
         let lead = configuration.frameInterval
@@ -267,7 +262,7 @@ final class ScrollEventTap: @unchecked Sendable {
             return Unmanaged.passUnretained(event)
         }
         // The first chunk replaces the original event in place, so nothing is delayed or duplicated.
-        guard !points.isZero, let replacement = makeEvent(points, flags: event.flags, at: event.location) else { return nil }
+        guard !points.isZero, let replacement = makeEvent(points, flags: event.flags) else { return nil }
         return Unmanaged.passRetained(replacement)
     }
 
@@ -315,7 +310,9 @@ final class ScrollEventTap: @unchecked Sendable {
         event.setIntegerValueField(points, value: -pointValue)
     }
 
-    private func makeEvent(_ output: WheelScroller.Output, flags: CGEventFlags, at location: CGPoint?) -> CGEvent? {
+    /// The event keeps the location it is created with, the pointer's current one, so a frame
+    /// never points at a spot the pointer has already left.
+    private func makeEvent(_ output: WheelScroller.Output, flags: CGEventFlags) -> CGEvent? {
         var vertical = output.vertical
         var horizontal = output.horizontal
         // AppKit turns Shift + wheel into horizontal scrolling only for classic wheel events,
@@ -332,10 +329,6 @@ final class ScrollEventTap: @unchecked Sendable {
             wheel3: 0
         ) else { return nil }
         event.flags = flags
-        if let location {
-            // Scroll events go to the window under their location, not the pointer's.
-            event.location = location
-        }
         event.setIntegerValueField(.eventSourceUserData, value: Self.marker)
         return event
     }
@@ -359,7 +352,7 @@ final class ScrollEventTap: @unchecked Sendable {
             return
         }
         let output = scroller.frame(at: now)
-        if !output.isZero, let event = makeEvent(output, flags: glideFlags, at: glideLocation) {
+        if !output.isZero, let event = makeEvent(output, flags: glideFlags) {
             event.post(tap: .cgSessionEventTap)
         }
         if !scroller.isGliding {
@@ -370,7 +363,6 @@ final class ScrollEventTap: @unchecked Sendable {
     private func stopGlide() {
         scroller.stop()
         stopFrames()
-        glideLocation = nil
     }
 
     private func stopFrames() {

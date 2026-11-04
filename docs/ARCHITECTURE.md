@@ -104,11 +104,11 @@ Only public event fields are used: `ScrollPhase`/`MomentumPhase` non-zero means 
 - **Smoothing on:** each notch starts an ease-out glide `1 - (1 - t)^k` (`GlideAnimator`). Glides overlap and add up, so the total distance is exact regardless of frame timing. The first chunk replaces the original event, so there is no added latency and nothing is duplicated; the rest is posted at the display's refresh rate. Fractions of a point are carried (`FractionAccumulator`).
 - **Reversal** flips the sign per axis. In-place rewrites read all three delta fields before writing, because setting the line delta overwrites the others.
 
-Glide frames carry the location where the wheel was last aimed, so — like native momentum — the rest of a glide keeps scrolling the same view even if the pointer moves on, while a new notch over another view takes the glide with it.
+Glide frames are created at the pointer's current location, so a glide scrolls whatever is under the pointer, like a fast series of wheel notches. They come from Pointwise's own event source with the local-event suppression interval set to zero: by default macOS ignores the real mouse for 0.25 s after every posted event, which with a frame every few milliseconds made the pointer stutter while scrolling.
 
 Synthesized events are pixel-precise and **phase-less**: that avoids swipe navigation and rubber-banding being triggered by a mouse wheel. They carry a marker in `eventSourceUserData` so the tap passes them through. Shift is applied by moving the delta to the horizontal axis, because AppKit only does that for classic wheel events.
 
-A glide stops when you click (passive global click monitor, so clicks never pass through the tap), touch the trackpad, change modifiers mid-glide, reverse the wheel, or when the tap is disabled.
+A glide stops when you click (passive click monitors, so clicks never pass through the tap), touch the trackpad, change modifiers mid-glide, reverse the wheel, or when the tap is disabled.
 
 ### Tap lifecycle and robustness
 

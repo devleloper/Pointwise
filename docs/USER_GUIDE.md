@@ -31,7 +31,7 @@ These settings apply to mice with a notched wheel. Trackpads and Magic Mouse kee
   - **Smoothness** — glide length, 80–600 ms.
   - **Responsiveness** — how much of the distance is covered right away. High values feel snappy, low values soft.
   - Clicking, touching the trackpad, reversing the wheel or changing modifier keys stops a glide.
-  - A glide keeps scrolling the view the wheel was last aimed at, even if the pointer moves on — like trackpad momentum. Turning the wheel over another view moves the glide there.
+  - A glide scrolls whatever is under the pointer, so moving the pointer during a glide moves the rest of it along.
 - **Reverse vertical / horizontal scrolling** — flips the wheel relative to macOS Natural scrolling, which also applies to the trackpad. The trackpad keeps the macOS direction.
 - **Reset Scrolling** restores the defaults of this pane.
 
